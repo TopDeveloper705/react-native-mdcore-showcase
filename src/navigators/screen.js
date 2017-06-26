@@ -9,16 +9,8 @@ import * as Containers from '@containers'
 import { Injector } from '@middlewares'
 
 const ROUTERS = {
-  experienceDetail: {
-    path: 'detail/experiences/:id',
-    screen: Containers.ExperienceDetail
-  },
   home: {
     screen: Containers.Home
-  },
-  listingDetail: {
-    path: 'detail/listings/:id',
-    screen: Containers.ListingDetail
   }
 }
 

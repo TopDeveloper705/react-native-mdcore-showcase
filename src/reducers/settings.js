@@ -1,5 +1,5 @@
 const INITIAL_STATE = {
-  code: 'demo'
+  code: 'init'
 }
 
 export default (state = INITIAL_STATE, action) => {

@@ -24,13 +24,13 @@
     android:allowBackup="false"
     android:icon="@mipmap/ic_launcher"
     android:label="@string/app_name"
-    android:name=".MainApplication"
+    android:name="me.henrytao.reactnativemdcoreshowcase.MainApplication"
     android:theme="@style/AppTheme">
 
     <activity
       android:configChanges="keyboard|keyboardHidden|orientation|screenSize"
       android:label="@string/app_name"
-      android:name=".MainActivity"
+      android:name="me.henrytao.reactnativemdcoreshowcase.MainActivity"
       android:windowSoftInputMode="adjustResize">
       <intent-filter>
         <action android:name="android.intent.action.MAIN" />

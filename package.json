@@ -1,5 +1,5 @@
 {
-  "name": "react-native-workshop",
+  "name": "react-native-mdcore-showcase",
   "version": "0.1.0",
   "private": true,
   "scripts": {
@@ -21,8 +21,6 @@
     "immutable": "3.8.1",
     "react": "16.0.0-alpha.12",
     "react-native": "0.45.1",
-    "react-native-code-push": "2.1.0-beta",
-    "react-native-mdcore": "0.1.7",
     "react-native-vector-icons": "4.2.0",
     "react-navigation": "1.0.0-beta.11",
     "react-redux": "5.0.5",
@@ -31,7 +29,7 @@
     "redux-logger": "3.0.6",
     "redux-persist": "4.8.1",
     "redux-persist-migrate": "4.1.0",
-    "redux-persist-model": "0.1.1",
+    "redux-persist-transform-immutable": "4.3.0",
     "reselect": "3.0.1"
   },
   "devDependencies": {
