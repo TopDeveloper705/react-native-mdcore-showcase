@@ -1,3 +1,4 @@
+<?xml version="1.0" encoding="utf-8"?>
 <!--
   ~ Copyright 2017 "Henry Tao <hi@henrytao.me>"
   ~
@@ -16,5 +17,7 @@
 
 <resources>
 
-  <string name="app_name">RNMdCore</string>
+  <style name="AppTheme" parent="Theme.AppCompat.Light.NoActionBar">
+    <item name="android:windowTranslucentStatus">true</item>
+  </style>
 </resources>

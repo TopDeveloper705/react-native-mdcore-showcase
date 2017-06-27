@@ -1119,7 +1119,7 @@
 					"-ObjC",
 					"-lc++",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = me.henrytao.reactnativeairbnb;
+				PRODUCT_BUNDLE_IDENTIFIER = me.henrytao.reactnativemdcoreshowcase;
 				PRODUCT_NAME = project;
 				VERSIONING_SYSTEM = "apple-generic";
 			};
@@ -1142,7 +1142,7 @@
 					"-ObjC",
 					"-lc++",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = me.henrytao.reactnativeairbnb;
+				PRODUCT_BUNDLE_IDENTIFIER = me.henrytao.reactnativemdcoreshowcase;
 				PRODUCT_NAME = project;
 				VERSIONING_SYSTEM = "apple-generic";
 			};

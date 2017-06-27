@@ -5,12 +5,13 @@ import {
 } from 'react-native-mdcore'
 import { StackNavigator } from 'react-navigation'
 
-import * as Containers from '@containers'
 import { Injector } from '@middlewares'
+
+import Drawer from './drawer'
 
 const ROUTERS = {
   home: {
-    screen: Containers.Home
+    screen: Drawer
   }
 }
 
@@ -24,14 +25,14 @@ const Stack = StackNavigator(ROUTERS, {
   headerMode: 'none'
 })
 
-export default class Screen extends PureComponent {
+export default class ScreenComponent extends PureComponent {
 
   static contextTypes = {
     theme: PropTypes.object
   }
 
-  componentDidMount() {
-    Injector.inject({ navigator: this.refs.navigator })
+  componentDidUpdate() {
+    Injector.inject({ screenNavigator: this.refs.navigator })
   }
 
   render() {
