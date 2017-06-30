@@ -31,6 +31,10 @@ export default class ScreenComponent extends PureComponent {
     theme: PropTypes.object
   }
 
+  componentDidMount() {
+    Injector.inject({ screenNavigator: this.refs.navigator })
+  }
+
   componentDidUpdate() {
     Injector.inject({ screenNavigator: this.refs.navigator })
   }

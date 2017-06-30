@@ -1,8 +1,7 @@
 import React from 'react'
 import {
   AppRegistry,
-  PureComponent,
-  ThemeProvider
+  PureComponent
 } from 'react-native-mdcore'
 
 import { Screen as ScreenNavigator } from '@navigators'
@@ -14,9 +13,9 @@ class Main extends PureComponent {
   render() {
     return (
       <Store>
-        <ThemeProvider theme={Theme}>
+        <Theme>
           <ScreenNavigator />
-        </ThemeProvider>
+        </Theme>
       </Store>
     )
   }

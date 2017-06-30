@@ -17,6 +17,10 @@ const Drawer = DrawerNavigator(ROUTERS, {
 
 export default class DrawerComponent extends PureComponent {
 
+  componentDidMount() {
+    Injector.inject({ drawerNavigator: this.refs.navigator })
+  }
+
   componentDidUpdate() {
     Injector.inject({ drawerNavigator: this.refs.navigator })
   }

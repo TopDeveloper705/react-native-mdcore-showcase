@@ -1,6 +1,6 @@
 import React from 'react'
 import { AsyncStorage } from 'react-native'
-import { PureComponent } from 'react-native-mdcore'
+import { PureComponent, ThemeProvider } from 'react-native-mdcore'
 
 import { connect as reactReduxConnect, Provider } from 'react-redux'
 import { applyMiddleware, bindActionCreators as reduxBindActionCreators, createStore } from 'redux'
@@ -12,14 +12,13 @@ import immutableTransform from 'redux-persist-transform-immutable'
 
 import middlewares, { Injector } from '@middlewares'
 import * as Models from '@models'
-import * as Modules from '@modules'
 import reducers from '@reducers'
 
 import migration from './migration'
 
 export { default as CONST } from './const'
 
-Injector.inject(Modules)
+ThemeProvider.defer()
 const STORE = createStore(reducers, undefined, composeWithDevTools(
   createMigration(migration, 'settings'),
   applyMiddleware(
@@ -40,9 +39,10 @@ const STORE = createStore(reducers, undefined, composeWithDevTools(
   }
 ))
 persistStore(STORE, {
+  blacklist: ['theme'],
   storage: AsyncStorage,
-  // transforms: [immutableTransform({ records: Object.values(Models || {}) })]
-})
+  transforms: [immutableTransform({ records: Object.values(Models) })]
+}, () => ThemeProvider.ready())
 
 export default class Store extends PureComponent {
 
@@ -56,4 +56,5 @@ export default class Store extends PureComponent {
 }
 
 export const bindActionCreators = reduxBindActionCreators
+
 export const connect = reactReduxConnect

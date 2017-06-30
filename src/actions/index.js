@@ -1,9 +1,9 @@
 import * as navigator from './navigator'
 import * as settings from './settings'
-import * as sync from './sync'
+import * as theme from './theme'
 
 export {
   navigator,
   settings,
-  sync
+  theme
 }
