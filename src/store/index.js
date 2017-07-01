@@ -18,7 +18,6 @@ import migration from './migration'
 
 export { default as CONST } from './const'
 
-ThemeProvider.defer()
 const STORE = createStore(reducers, undefined, composeWithDevTools(
   createMigration(migration, 'settings'),
   applyMiddleware(
@@ -38,6 +37,8 @@ const STORE = createStore(reducers, undefined, composeWithDevTools(
     return nextStore
   }
 ))
+
+ThemeProvider.defer()
 persistStore(STORE, {
   blacklist: ['theme'],
   storage: AsyncStorage,
@@ -58,3 +59,5 @@ export default class Store extends PureComponent {
 export const bindActionCreators = reduxBindActionCreators
 
 export const connect = reactReduxConnect
+
+export const getState = STORE.getState

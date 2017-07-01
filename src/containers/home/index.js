@@ -32,8 +32,14 @@ class Home extends PureComponent {
     theme: PropTypes.any
   }
 
+  componentDidMount() {
+    // setInterval(() => {
+    //   this.setState({ test: new Date() })
+    // }, 1000)
+  }
+
   render() {
-    console.log('aaaaaaaa home render')
+    console.log('aaaaaaaa home render', this.context.theme.__id)
     return (
       <List />
     )

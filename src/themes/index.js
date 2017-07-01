@@ -1,11 +1,12 @@
 import React from 'react'
 import {
   PureComponent,
-  ThemeProvider
+  ThemeProvider,
+  Utils
 } from 'react-native-mdcore'
 
 import { theme as themeActions } from '@actions'
-import { bindActionCreators, connect } from '@store'
+import { bindActionCreators, connect, getState } from '@store'
 
 import Theme from './theme'
 
@@ -24,7 +25,10 @@ class ThemeContainer extends PureComponent {
   }
 
   _onConfigChange = (config) => {
-    this.props.themeActions.setConfig(config)
+    const { theme } = getState()
+    if (!Utils.deepEqual(config, theme)) {
+      this.props.themeActions.setConfig(config)
+    }
   }
 }
 
