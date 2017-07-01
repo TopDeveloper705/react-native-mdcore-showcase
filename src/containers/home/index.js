@@ -1,33 +1,23 @@
 import React from 'react'
 import {
-  Component,
-  Divider,
+  StyleSheet,
+  ThemeComponent,
   PropTypes,
   PureComponent,
-  StatusBar,
-  StyleSheet,
-  Text,
-  ThemeComponent,
   View
 } from 'react-native-mdcore'
 
 import { connect } from '@store'
 
 class List extends ThemeComponent {
-
   render() {
     const { theme } = this.context
     const styles = Styles.get(theme)
-    console.log('aaaaaaaa list render')
-    return (
-      <View style={styles.flexStyle}>
-      </View>
-    )
+    return <View style={styles.flexStyle} />
   }
 }
 
 class Home extends PureComponent {
-
   static contextTypes = {
     theme: PropTypes.any
   }
@@ -39,14 +29,11 @@ class Home extends PureComponent {
   }
 
   render() {
-    console.log('aaaaaaaa home render', this.context.theme.__id)
-    return (
-      <List />
-    )
+    return <List />
   }
 }
 
-const mapStateToProps = (state) => {
+const mapStateToProps = state => {
   return {
     theme: state.theme
   }
@@ -54,7 +41,7 @@ const mapStateToProps = (state) => {
 
 export default connect(mapStateToProps, null)(Home)
 
-const Styles = StyleSheet.create((theme) => {
+const Styles = StyleSheet.create(theme => {
   const flexStyle = {
     flex: 1,
     backgroundColor: theme.palette.primary

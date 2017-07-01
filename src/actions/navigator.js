@@ -8,10 +8,10 @@ export const goBack = () => (dispatch, { navigator }) => {
   navigator.dispatch(NavigationActions.back())
 }
 
-export const toExperienceDetail = (id) => (dispatch, { navigator }) => {
+export const toExperienceDetail = id => (dispatch, { navigator }) => {
   navigate(navigator, 'experienceDetail', { id })
 }
 
-export const toListingDetail = (id) => (dispatch, { navigator }) => {
+export const toListingDetail = id => (dispatch, { navigator }) => {
   navigate(navigator, 'listingDetail', { id })
 }

@@ -7,16 +7,15 @@ import { Injector } from '@middlewares'
 
 const ROUTERS = {
   home: {
-    screen: Home,
+    screen: Home
   }
 }
 
 const Drawer = DrawerNavigator(ROUTERS, {
-  contentComponent: DrawerContent,
+  contentComponent: DrawerContent
 })
 
 export default class DrawerComponent extends PureComponent {
-
   componentDidMount() {
     Injector.inject({ drawerNavigator: this.refs.navigator })
   }
@@ -26,8 +25,6 @@ export default class DrawerComponent extends PureComponent {
   }
 
   render() {
-    return (
-      <Drawer ref="navigator" style={{ flex: 1 }} />
-    )
+    return <Drawer ref="navigator" style={{ flex: 1 }} />
   }
 }
