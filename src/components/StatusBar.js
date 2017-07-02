@@ -9,7 +9,6 @@ import {
 } from 'react-native-mdcore'
 
 export default class StatusBarComponent extends PureComponent {
-
   static contextTypes = {
     theme: PropTypes.any
   }
@@ -24,7 +23,9 @@ export default class StatusBarComponent extends PureComponent {
   }
 
   componentDidMount() {
-    NativeModules.StatusBarManager.getHeight(({ height }) => this.setState({ statusBarHeight: height }))
+    NativeModules.StatusBarManager.getHeight(({ height }) =>
+      this.setState({ statusBarHeight: height })
+    )
   }
 
   render() {
@@ -33,16 +34,16 @@ export default class StatusBarComponent extends PureComponent {
     const height = Platform.OS === 'ios' ? this.state.statusBarHeight : 0
     return (
       <View style={{ backgroundColor, height }}>
-        <StatusBar
-          backgroundColor="black"
-          barStyle={barStyle} />
+        <StatusBar backgroundColor="black" barStyle={barStyle} />
       </View>
     )
   }
 
   _getBackgroundColor = () => {
     const { theme } = this.context
-    let backgroundColor = this.props.backgroundColor || (Platform.OS === 'ios' ? theme.palette.primary : 'transparent')
+    let backgroundColor =
+      this.props.backgroundColor ||
+      (Platform.OS === 'ios' ? theme.palette.primary : 'transparent')
     backgroundColor = theme.palette[backgroundColor] || backgroundColor
     return backgroundColor
   }

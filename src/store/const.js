@@ -1,4 +1,3 @@
 export default {
-
   THEME_CONFIG_CHANGED: 'THEME_CONFIG_CHANGED'
 }

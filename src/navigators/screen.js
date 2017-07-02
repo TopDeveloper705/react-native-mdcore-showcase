@@ -1,8 +1,5 @@
 import React from 'react'
-import {
-  PropTypes,
-  PureComponent
-} from 'react-native-mdcore'
+import { PropTypes, PureComponent } from 'react-native-mdcore'
 import { StackNavigator } from 'react-navigation'
 
 import { Injector } from '@middlewares'
@@ -26,7 +23,6 @@ const Stack = StackNavigator(ROUTERS, {
 })
 
 export default class ScreenComponent extends PureComponent {
-
   static contextTypes = {
     theme: PropTypes.object
   }
@@ -42,8 +38,6 @@ export default class ScreenComponent extends PureComponent {
   render() {
     const { theme } = this.context
     CARD_STYLE.backgroundColor = theme.palette.background
-    return (
-      <Stack ref="navigator" style={{ flex: 1 }} />
-    )
+    return <Stack ref="navigator" style={{ flex: 1 }} />
   }
 }

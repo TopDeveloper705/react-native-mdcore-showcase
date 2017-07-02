@@ -1,3 +1,3 @@
 export default {
-  1: (state) => ({ ...state })
+  1: state => ({ ...state })
 }

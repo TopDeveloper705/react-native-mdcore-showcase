@@ -3,7 +3,11 @@ import { AsyncStorage } from 'react-native'
 import { PureComponent, ThemeProvider } from 'react-native-mdcore'
 
 import { connect as reactReduxConnect, Provider } from 'react-redux'
-import { applyMiddleware, bindActionCreators as reduxBindActionCreators, createStore } from 'redux'
+import {
+  applyMiddleware,
+  bindActionCreators as reduxBindActionCreators,
+  createStore
+} from 'redux'
 import { composeWithDevTools } from 'redux-devtools-extension'
 import { createLogger } from 'redux-logger'
 import { persistStore, autoRehydrate } from 'redux-persist'
@@ -18,35 +22,42 @@ import migration from './migration'
 
 export { default as CONST } from './const'
 
-const STORE = createStore(reducers, undefined, composeWithDevTools(
-  createMigration(migration, 'settings'),
-  applyMiddleware(
-    ...middlewares,
-    createLogger({
-      predicate: (getState, action) => __DEV__, //eslint-disable-line
-      collapsed: true,
-      duration: true
-    })
-  ),
-  autoRehydrate(),
-  next => (reducers, initialState, enhancer) => {
-    const nextStore = next(reducers, initialState, enhancer)
-    Injector.inject({
-      getState: nextStore.getState
-    })
-    return nextStore
-  }
-))
+const STORE = createStore(
+  reducers,
+  undefined,
+  composeWithDevTools(
+    createMigration(migration, 'settings'),
+    applyMiddleware(
+      ...middlewares,
+      createLogger({
+        predicate: (getState, action) => __DEV__, //eslint-disable-line
+        collapsed: true,
+        duration: true
+      })
+    ),
+    autoRehydrate(),
+    next => (reducers, initialState, enhancer) => {
+      const nextStore = next(reducers, initialState, enhancer)
+      Injector.inject({
+        getState: nextStore.getState
+      })
+      return nextStore
+    }
+  )
+)
 
 ThemeProvider.defer()
-persistStore(STORE, {
-  blacklist: ['theme'],
-  storage: AsyncStorage,
-  transforms: [immutableTransform({ records: Object.values(Models) })]
-}, () => ThemeProvider.ready())
+persistStore(
+  STORE,
+  {
+    blacklist: ['theme'],
+    storage: AsyncStorage,
+    transforms: [immutableTransform({ records: Object.values(Models) })]
+  },
+  () => ThemeProvider.ready()
+)
 
 export default class Store extends PureComponent {
-
   render() {
     return (
       <Provider store={STORE}>
