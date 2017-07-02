@@ -79,6 +79,28 @@ export const bindActionCreators = (actions, dispatch) => {
   )
 }
 
-export const connect = reactReduxConnect
+export const connect = (mapStateToProps, ...args) => WrappedComponent => {
+  mapStateToProps = mapStateToProps || (() => ({}))
+  const wrappedMapStateToProps = () => {
+    let cached = null
+    return (state, ...args) => {
+      let res = {}
+      if (cached) {
+        res = cached(state, ...args)
+      } else {
+        cached = mapStateToProps(state, ...args)
+        if (Utils.isFunction(cached)) {
+          res = cached(state, ...args)
+        } else {
+          res = cached
+          cached = mapStateToProps
+        }
+      }
+      res = { ...res, __theme__: state.theme }
+      return res
+    }
+  }
+  return reactReduxConnect(wrappedMapStateToProps, ...args)(WrappedComponent)
+}
 
 export const getState = STORE.getState

@@ -9,37 +9,18 @@ import {
 
 import { connect } from '@store'
 
-class List extends ThemeComponent {
-  render() {
-    const { theme } = this.context
-    const styles = Styles.get(theme)
-    return <View style={styles.flexStyle} />
-  }
-}
-
 class Home extends PureComponent {
   static contextTypes = {
     theme: PropTypes.any
   }
 
-  componentDidMount() {
-    // setInterval(() => {
-    //   this.setState({ test: new Date() })
-    // }, 1000)
-  }
-
   render() {
-    return <List />
+    const styles = Styles.get(this.context.theme)
+    return <View style={styles.flexStyle} />
   }
 }
 
-const mapStateToProps = state => {
-  return {
-    theme: state.theme
-  }
-}
-
-export default connect(mapStateToProps, null)(Home)
+export default connect(null, null)(Home)
 
 const Styles = StyleSheet.create(theme => {
   const flexStyle = {
