@@ -2,8 +2,11 @@ import React from 'react'
 import {
   PropTypes,
   PureComponent,
+  ScrollView,
+  StatusBar,
   StyleSheet,
-  ThemeComponent,
+  Subheader,
+  Toolbar,
   View
 } from 'react-native-mdcore'
 
@@ -15,8 +18,17 @@ class Home extends PureComponent {
   }
 
   render() {
-    const styles = Styles.get(this.context.theme)
-    return <View style={styles.flexStyle} />
+    const { theme } = this.context
+    const styles = Styles.get(theme)
+    return (
+      <View style={{ flex: 1 }}>
+        <StatusBar />
+        <Toolbar title="ReactNativeMdCore" iconName="menu" />
+        <ScrollView style={{ flex: 1 }}>
+          <Subheader text="Material Components" />
+        </ScrollView>
+      </View>
+    )
   }
 }
 
