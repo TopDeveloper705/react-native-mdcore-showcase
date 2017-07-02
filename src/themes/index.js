@@ -1,7 +1,7 @@
 import React from 'react'
 import { PureComponent, ThemeProvider, Utils } from 'react-native-mdcore'
 
-import { theme as themeActions } from '@actions'
+import { themeActions } from '@redux'
 import { bindActionCreators, connect, getState } from '@store'
 
 import Theme from './theme'

@@ -1,6 +1,6 @@
 import React from 'react'
 import { AsyncStorage } from 'react-native'
-import { PureComponent, ThemeProvider } from 'react-native-mdcore'
+import { PureComponent, ThemeProvider, Utils } from 'react-native-mdcore'
 
 import { connect as reactReduxConnect, Provider } from 'react-redux'
 import {
@@ -16,7 +16,7 @@ import immutableTransform from 'redux-persist-transform-immutable'
 
 import middlewares, { Injector } from '@middlewares'
 import * as Models from '@models'
-import reducers from '@reducers'
+import reducers from '@redux'
 
 import migration from './migration'
 
@@ -67,7 +67,17 @@ export default class Store extends PureComponent {
   }
 }
 
-export const bindActionCreators = reduxBindActionCreators
+export const bindActionCreators = (actions, dispatch) => {
+  return reduxBindActionCreators(
+    Object.keys(actions)
+      .filter(key => Utils.isFunction(actions[key]))
+      .reduce((acc, key) => {
+        acc[key] = actions[key]
+        return acc
+      }, {}),
+    dispatch
+  )
+}
 
 export const connect = reactReduxConnect
 
