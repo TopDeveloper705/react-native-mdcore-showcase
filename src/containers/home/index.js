@@ -1,6 +1,8 @@
 import React from 'react'
 import {
+  Divider,
   ListItem,
+  ListPadding,
   PropTypes,
   PureComponent,
   ScrollView,
@@ -26,111 +28,15 @@ class Home extends PureComponent {
         <StatusBar />
         <Toolbar title="ReactNativeMdCore" iconName="menu" />
         <ScrollView style={{ flex: 1 }}>
+          <ListPadding />
           <Subheader text="Material Components" />
           <ListItem
-            style={{ backgroundColor: '#ccaaee' }}
-            avatarStyle={{ backgroundColor: '#ccc' }}
-            icon="apps"
-            secondaryText="Bottom navigation with cross-fading views Bottom navigation with cross-fading views"
-            text="Bottom navigation Bottom navigation Bottom navigation Bottom navigation Bottom navigation"
-            type="single-line-text-only"
-          />
-          <ListItem
-            style={{ backgroundColor: '#cce331' }}
-            avatarStyle={{ backgroundColor: '#ccc' }}
-            icon="apps"
-            secondaryText="Bottom navigation with cross-fading views Bottom navigation with cross-fading views"
-            text="Bottom navigation Bottom navigation Bottom navigation Bottom navigation Bottom navigation"
-            type="single-line-icon-with-text"
-          />
-          <ListItem
-            style={{ backgroundColor: '#ccaaee' }}
-            avatar="abc"
-            avatarStyle={{ backgroundColor: '#ccc' }}
-            icon="apps"
-            secondaryText="Bottom navigation with cross-fading views Bottom navigation with cross-fading views"
-            text="Bottom navigation Bottom navigation Bottom navigation Bottom navigation Bottom navigation"
-            type="single-line-avatar-with-text"
-          />
-          <ListItem
-            style={{ backgroundColor: '#cce331' }}
-            avatar="abc"
-            avatarStyle={{ backgroundColor: '#ccc' }}
-            icon="apps"
-            secondaryText="Bottom navigation with cross-fading views Bottom navigation with cross-fading views"
-            text="Bottom navigation Bottom navigation Bottom navigation Bottom navigation Bottom navigation"
-            type="single-line-avatar-with-text-and-icon"
-          />
-
-          <ListItem
-            style={{ backgroundColor: '#ccaaee' }}
-            avatarStyle={{ backgroundColor: '#ccc' }}
-            icon="apps"
-            secondaryText="Bottom navigation with cross-fading views Bottom navigation with cross-fading views"
-            text="Bottom navigation Bottom navigation Bottom navigation Bottom navigation Bottom navigation"
+            secondaryText="Bottom navigation with cross-fading views"
+            text="Bottom navigation"
             type="two-line-text-only"
           />
-          <ListItem
-            style={{ backgroundColor: '#cce331' }}
-            avatarStyle={{ backgroundColor: '#ccc' }}
-            icon="apps"
-            secondaryText="Bottom navigation with cross-fading views Bottom navigation with cross-fading views"
-            text="Bottom navigation Bottom navigation Bottom navigation Bottom navigation Bottom navigation"
-            type="two-line-icon-with-text"
-          />
-          <ListItem
-            style={{ backgroundColor: '#ccaaee' }}
-            avatar="abc"
-            avatarStyle={{ backgroundColor: '#ccc' }}
-            icon="apps"
-            secondaryText="Bottom navigation with cross-fading views Bottom navigation with cross-fading views"
-            text="Bottom navigation Bottom navigation Bottom navigation Bottom navigation Bottom navigation"
-            type="two-line-avatar-with-text"
-          />
-          <ListItem
-            style={{ backgroundColor: '#cce331' }}
-            avatar="abc"
-            avatarStyle={{ backgroundColor: '#ccc' }}
-            icon="apps"
-            secondaryText="Bottom navigation with cross-fading views Bottom navigation with cross-fading views"
-            text="Bottom navigation Bottom navigation Bottom navigation Bottom navigation Bottom navigation"
-            type="two-line-avatar-with-text-and-icon"
-          />
-
-          <ListItem
-            style={{ backgroundColor: '#ccaaee' }}
-            avatarStyle={{ backgroundColor: '#ccc' }}
-            icon="apps"
-            secondaryText="Bottom navigation with cross-fading views Bottom navigation with cross-fading views"
-            text="Bottom navigation Bottom navigation Bottom navigation Bottom navigation Bottom navigation"
-            type="three-line-text-only"
-          />
-          <ListItem
-            style={{ backgroundColor: '#cce331' }}
-            avatarStyle={{ backgroundColor: '#ccc' }}
-            icon="apps"
-            secondaryText="Bottom navigation with cross-fading views Bottom navigation with cross-fading views"
-            text="Bottom navigation Bottom navigation Bottom navigation Bottom navigation Bottom navigation"
-            type="three-line-icon-with-text"
-          />
-          <ListItem
-            style={{ backgroundColor: '#ccaaee' }}
-            avatar="abc"
-            avatarStyle={{ backgroundColor: '#ccc' }}
-            icon="apps"
-            secondaryText="Bottom navigation with cross-fading views Bottom navigation with cross-fading views"
-            text="Bottom navigation Bottom navigation Bottom navigation Bottom navigation Bottom navigation"
-            type="three-line-avatar-with-text"
-          />
-          <ListItem
-            style={{ backgroundColor: '#cce331' }}
-            avatar="abc"
-            avatarStyle={{ backgroundColor: '#ccc' }}
-            icon="apps"
-            secondaryText="Bottom navigation with cross-fading views Bottom navigation with cross-fading views"
-            text="Bottom navigation Bottom navigation Bottom navigation Bottom navigation Bottom navigation"
-            type="three-line-avatar-with-text-and-icon"
-          />
+          <Divider />
+          <ListPadding />
         </ScrollView>
       </View>
     )
