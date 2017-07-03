@@ -1,8 +1,10 @@
 import React from 'react'
 import {
   BottomNavigation,
+  BottomNavigationContainer,
   BottomNavigationItem,
   Divider,
+  Icon,
   ListItem,
   ListPadding,
   PropTypes,
@@ -10,6 +12,7 @@ import {
   ScrollView,
   StatusBar,
   StyleSheet,
+  Text,
   Toolbar,
   View
 } from 'react-native-mdcore'
@@ -40,7 +43,7 @@ const ITEMS = [
   }
 ]
 
-class BottomNavigationContainer extends PureComponent {
+class Container extends PureComponent {
   static contextTypes = {
     icons: PropTypes.any,
     theme: PropTypes.any
@@ -57,7 +60,15 @@ class BottomNavigationContainer extends PureComponent {
           iconName={this.context.icons.back}
           onNavigationPress={this._onBackPress}
         />
-        <ScrollView style={styles.content} />
+        <BottomNavigationContainer
+          ref="bottomNavigationContainer"
+          initialItem={parseInt(ITEMS.length / 2)}>
+          {ITEMS.map((item, index) =>
+            <View key={index} style={styles.content}>
+              <Icon color={theme.palette.primary} name={item.icon} size={96} />
+            </View>
+          )}
+        </BottomNavigationContainer>
         <Divider />
         <BottomNavigation
           initialItem={parseInt(ITEMS.length / 2)}
@@ -65,6 +76,7 @@ class BottomNavigationContainer extends PureComponent {
           {ITEMS.map((item, index) =>
             <BottomNavigationItem
               key={index}
+              color={this._getBottomNavigationItemColor}
               icon={item.icon}
               title={item.title}
             />
@@ -79,7 +91,11 @@ class BottomNavigationContainer extends PureComponent {
   }
 
   _onBottomNavigationItemSelected = ({ index }) => {
-    console.log('ccccccccc', index)
+    this.refs.bottomNavigationContainer.setItem(index)
+  }
+
+  _getBottomNavigationItemColor = ({ active }) => {
+    return active ? this.context.theme.palette.primary : undefined
   }
 }
 
@@ -89,14 +105,16 @@ const mapDispatchToProps = dispatch => {
   }
 }
 
-export default connect(null, mapDispatchToProps)(BottomNavigationContainer)
+export default connect(null, mapDispatchToProps)(Container)
 
 const Styles = StyleSheet.create(_theme => {
   const container = {
     flex: 1
   }
   const content = {
-    flex: 1
+    flex: 1,
+    alignItems: 'center',
+    justifyContent: 'center'
   }
   return { container, content }
 })

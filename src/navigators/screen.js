@@ -28,7 +28,7 @@ const CARD_STYLE = {
 }
 
 const Stack = StackNavigator(ROUTERS, {
-  initialRouteName: 'bottomNavigation',
+  initialRouteName: 'splash',
   cardStyle: CARD_STYLE,
   headerMode: 'none'
 })
