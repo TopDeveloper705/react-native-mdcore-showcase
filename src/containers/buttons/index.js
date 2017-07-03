@@ -1,8 +1,6 @@
 import React from 'react'
 import {
-  BottomNavigation,
-  BottomNavigationContainer,
-  BottomNavigationItem,
+  Button,
   Divider,
   Icon,
   ListItem,
@@ -14,7 +12,8 @@ import {
   StyleSheet,
   Text,
   Toolbar,
-  View
+  View,
+  ViewPager
 } from 'react-native-mdcore'
 
 import { navigatorActions } from '@redux'
@@ -37,6 +36,9 @@ class ButtonsContainer extends PureComponent {
           iconName={this.context.icons.back}
           onNavigationPress={this._onBackPress}
         />
+        <ScrollView>
+          <Button title="sample" />
+        </ScrollView>
       </View>
     )
   }
