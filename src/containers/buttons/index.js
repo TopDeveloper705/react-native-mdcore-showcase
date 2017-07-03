@@ -32,22 +32,42 @@ class ButtonsContainer extends PureComponent {
       <View style={styles.container}>
         <StatusBar />
         <Toolbar
-          title="Buttons"
           iconName={this.context.icons.back}
+          title="Buttons"
           onNavigationPress={this._onBackPress}
         />
         <ScrollView>
           <View style={{ alignItems: 'center' }}>
-            <Button palette="background" title="sample" />
-            <Button palette="primary" title="sample" />
-            <Button palette="accent" title="sample" />
-            <Button palette="warn" title="sample" />
+            <Button palette="background" title="sample" onPress={() => {}} />
+            <Button palette="primary" title="sample" onPress={() => {}} />
+            <Button palette="accent" title="sample" onPress={() => {}} />
+            <Button palette="warn" title="sample" onPress={() => {}} />
           </View>
           <View style={{ alignItems: 'center' }}>
-            <Button palette="background" title="sample" type="flat" />
-            <Button palette="primary" title="sample" type="flat" />
-            <Button palette="accent" title="sample" type="flat" />
-            <Button palette="warn" title="sample" type="flat" />
+            <Button
+              palette="background"
+              title="sample"
+              type="flat"
+              onPress={() => {}}
+            />
+            <Button
+              palette="primary"
+              title="sample"
+              type="flat"
+              onPress={() => {}}
+            />
+            <Button
+              palette="accent"
+              title="sample"
+              type="flat"
+              onPress={() => {}}
+            />
+            <Button
+              palette="warn"
+              title="sample"
+              type="flat"
+              onPress={() => {}}
+            />
           </View>
         </ScrollView>
       </View>
