@@ -6,7 +6,7 @@ import {
   StackNavigator
 } from 'react-navigation'
 
-import { BottomNavigation, Splash } from '@containers'
+import { BottomNavigation, Buttons, Splash } from '@containers'
 import { Injector } from '@middlewares'
 
 import Drawer from './drawer'
@@ -14,6 +14,9 @@ import Drawer from './drawer'
 const ROUTERS = {
   bottomNavigation: {
     screen: BottomNavigation
+  },
+  buttons: {
+    screen: Buttons
   },
   home: {
     screen: Drawer

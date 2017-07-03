@@ -5,14 +5,10 @@ import {
   BottomNavigationItem,
   Divider,
   Icon,
-  ListItem,
-  ListPadding,
   PropTypes,
   PureComponent,
-  ScrollView,
   StatusBar,
   StyleSheet,
-  Text,
   Toolbar,
   View
 } from 'react-native-mdcore'
@@ -38,7 +34,7 @@ const ITEMS = [
     title: 'Favorites'
   },
   {
-    icon: 'event-available',
+    icon: 'event',
     title: 'Event'
   }
 ]

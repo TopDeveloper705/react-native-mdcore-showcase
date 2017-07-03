@@ -27,3 +27,7 @@ export const openDrawer = () => (dispatch, { drawerNavigator }) => {
 export const toBottomNavigation = () => (dispatch, { screenNavigator }) => {
   navigate(screenNavigator, 'bottomNavigation')
 }
+
+export const toButtons = () => (dispatch, { screenNavigator }) => {
+  navigate(screenNavigator, 'buttons')
+}
