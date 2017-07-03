@@ -1,5 +1,6 @@
 import { combineReducers } from 'redux'
 
+import * as navigatorActions from './navigator'
 import settings, * as settingsActions from './settings'
 import theme, * as themeActions from './theme'
 
@@ -8,4 +9,4 @@ export default combineReducers({
   theme
 })
 
-export { settingsActions, themeActions }
+export { navigatorActions, settingsActions, themeActions }

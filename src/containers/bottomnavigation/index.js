@@ -3,6 +3,7 @@ import {
   Divider,
   ListItem,
   ListPadding,
+  PropTypes,
   PureComponent,
   ScrollView,
   StatusBar,
@@ -15,16 +16,21 @@ import {
 import { navigatorActions } from '@redux'
 import { bindActionCreators, connect } from '@store'
 
-class Home extends PureComponent {
+class BottomNavigation extends PureComponent {
+  static contextTypes = {
+    theme: PropTypes.any
+  }
+
   render() {
-    const styles = Styles.get()
+    const { theme } = this.context
+    const styles = Styles.get(theme)
     return (
       <View style={styles.container}>
         <StatusBar />
         <Toolbar
-          title="ReactNativeMdCore"
+          title="BottomNavigation"
           iconName="menu"
-          onNavigationPress={this._onMenuPress}
+          onNavigationPress={this._onBackPress}
         />
         <ScrollView style={{ flex: 1 }}>
           <ListPadding />
@@ -33,7 +39,6 @@ class Home extends PureComponent {
             secondaryText="Bottom navigation with cross-fading views"
             text="Bottom navigation"
             type="two-line-text-only"
-            onPress={this.props.navigatorActions.toBottomNavigation}
           />
           <Divider />
           <ListPadding />
@@ -42,8 +47,8 @@ class Home extends PureComponent {
     )
   }
 
-  _onMenuPress = ({ hardwareBackPress }) => {
-    return !hardwareBackPress && this.props.navigatorActions.openDrawer()
+  _onBackPress = () => {
+    this.props.navigatorActions.goBack()
   }
 }
 
@@ -53,10 +58,11 @@ const mapDispatchToProps = dispatch => {
   }
 }
 
-export default connect(null, mapDispatchToProps)(Home)
+export default connect(null, mapDispatchToProps)(BottomNavigation)
 
-const Styles = StyleSheet.create({
-  container: {
+const Styles = StyleSheet.create(theme => {
+  const container = {
     flex: 1
   }
+  return { container }
 })
