@@ -15,7 +15,7 @@ import {
 import { navigatorActions } from '@redux'
 import { bindActionCreators, connect } from '@store'
 
-class Home extends PureComponent {
+class HomeContainer extends PureComponent {
   render() {
     const styles = Styles.get()
     return (
@@ -53,7 +53,7 @@ const mapDispatchToProps = dispatch => {
   }
 }
 
-export default connect(null, mapDispatchToProps)(Home)
+export default connect(null, mapDispatchToProps)(HomeContainer)
 
 const Styles = StyleSheet.create({
   container: {

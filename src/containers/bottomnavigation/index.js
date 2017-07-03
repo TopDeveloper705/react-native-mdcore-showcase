@@ -1,5 +1,7 @@
 import React from 'react'
 import {
+  BottomNavigation,
+  BottomNavigationItem,
   Divider,
   ListItem,
   ListPadding,
@@ -8,7 +10,6 @@ import {
   ScrollView,
   StatusBar,
   StyleSheet,
-  Subheader,
   Toolbar,
   View
 } from 'react-native-mdcore'
@@ -16,8 +17,32 @@ import {
 import { navigatorActions } from '@redux'
 import { bindActionCreators, connect } from '@store'
 
-class BottomNavigation extends PureComponent {
+const ITEMS = [
+  {
+    icon: 'alarm',
+    title: 'Alarm'
+  },
+  {
+    icon: 'stop',
+    title: 'Box'
+  },
+  {
+    icon: 'cloud',
+    title: 'Cloud'
+  },
+  {
+    icon: 'favorite',
+    title: 'Favorites'
+  },
+  {
+    icon: 'event-available',
+    title: 'Event'
+  }
+]
+
+class BottomNavigationContainer extends PureComponent {
   static contextTypes = {
+    icons: PropTypes.any,
     theme: PropTypes.any
   }
 
@@ -28,27 +53,33 @@ class BottomNavigation extends PureComponent {
       <View style={styles.container}>
         <StatusBar />
         <Toolbar
-          title="BottomNavigation"
-          iconName="menu"
+          title="Bottom navigation"
+          iconName={this.context.icons.back}
           onNavigationPress={this._onBackPress}
         />
-        <ScrollView style={{ flex: 1 }}>
-          <ListPadding />
-          <Subheader text="Material Components" />
-          <ListItem
-            secondaryText="Bottom navigation with cross-fading views"
-            text="Bottom navigation"
-            type="two-line-text-only"
-          />
-          <Divider />
-          <ListPadding />
-        </ScrollView>
+        <ScrollView style={styles.content} />
+        <Divider />
+        <BottomNavigation
+          initialItem={parseInt(ITEMS.length / 2)}
+          onItemSelected={this._onBottomNavigationItemSelected}>
+          {ITEMS.map((item, index) =>
+            <BottomNavigationItem
+              key={index}
+              icon={item.icon}
+              title={item.title}
+            />
+          )}
+        </BottomNavigation>
       </View>
     )
   }
 
   _onBackPress = () => {
     this.props.navigatorActions.goBack()
+  }
+
+  _onBottomNavigationItemSelected = ({ index }) => {
+    console.log('ccccccccc', index)
   }
 }
 
@@ -58,11 +89,14 @@ const mapDispatchToProps = dispatch => {
   }
 }
 
-export default connect(null, mapDispatchToProps)(BottomNavigation)
+export default connect(null, mapDispatchToProps)(BottomNavigationContainer)
 
-const Styles = StyleSheet.create(theme => {
+const Styles = StyleSheet.create(_theme => {
   const container = {
     flex: 1
   }
-  return { container }
+  const content = {
+    flex: 1
+  }
+  return { container, content }
 })

@@ -1,7 +1,14 @@
 import React from 'react'
-import { PureComponent, ThemeProvider, Utils } from 'react-native-mdcore'
+import {
+  Platform,
+  PropTypes,
+  PureComponent,
+  ThemeProvider,
+  Utils
+} from 'react-native-mdcore'
 
 import { themeActions } from '@redux'
+import { icons } from '@resources'
 import { bindActionCreators, connect, getState } from '@store'
 
 import Theme from './theme'
@@ -14,9 +21,22 @@ const ThemeDeferrer = connect(
 })
 
 class ThemeContainer extends PureComponent {
+  static childContextTypes = {
+    icons: PropTypes.any
+  }
+
+  _icons = {}
+
+  getChildContext() {
+    return { icons: this._icons }
+  }
+
   render() {
     return (
-      <ThemeProvider theme={Theme} onConfigChange={this._onConfigChange}>
+      <ThemeProvider
+        os={this.props.os}
+        theme={Theme}
+        onConfigChange={this._onConfigChange}>
         <ThemeDeferrer>
           {this.props.children}
         </ThemeDeferrer>
@@ -27,8 +47,15 @@ class ThemeContainer extends PureComponent {
   _onConfigChange = config => {
     const { theme } = getState()
     if (!Utils.deepEqual(config, theme)) {
+      Object.assign(this._icons, icons.resolve([this.props.os]))
       this.props.themeActions.setConfig(config)
     }
+  }
+}
+
+const mapStateToProps = _state => {
+  return {
+    os: Platform.OS
   }
 }
 
@@ -38,4 +65,4 @@ const mapDispatchToProps = dispatch => {
   }
 }
 
-export default connect(null, mapDispatchToProps)(ThemeContainer)
+export default connect(mapStateToProps, mapDispatchToProps)(ThemeContainer)
