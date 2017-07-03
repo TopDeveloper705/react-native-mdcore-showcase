@@ -37,7 +37,18 @@ class ButtonsContainer extends PureComponent {
           onNavigationPress={this._onBackPress}
         />
         <ScrollView>
-          <Button title="sample" />
+          <View style={{ alignItems: 'center' }}>
+            <Button palette="background" title="sample" />
+            <Button palette="primary" title="sample" />
+            <Button palette="accent" title="sample" />
+            <Button palette="warn" title="sample" />
+          </View>
+          <View style={{ alignItems: 'center' }}>
+            <Button palette="background" title="sample" type="flat" />
+            <Button palette="primary" title="sample" type="flat" />
+            <Button palette="accent" title="sample" type="flat" />
+            <Button palette="warn" title="sample" type="flat" />
+          </View>
         </ScrollView>
       </View>
     )
