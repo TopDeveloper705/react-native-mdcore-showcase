@@ -35,3 +35,7 @@ export const toButtons = () => (dispatch, { screenNavigator }) => {
 export const toCards = () => (dispatch, { screenNavigator }) => {
   navigate(screenNavigator, 'cards')
 }
+
+export const toTextFields = () => (dispatch, { screenNavigator }) => {
+  navigate(screenNavigator, 'textFields')
+}

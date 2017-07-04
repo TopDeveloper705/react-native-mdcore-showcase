@@ -49,6 +49,12 @@ class HomeContainer extends PureComponent {
             type="two-line-text-only"
             onPress={this.props.navigatorActions.toCards}
           />
+          <ListItem
+            secondaryText="Single line of editable text and numbers"
+            text="Text fields"
+            type="two-line-text-only"
+            onPress={this.props.navigatorActions.toTextFields}
+          />
           {/*<Divider />*/}
           <ListPadding />
         </ScrollView>

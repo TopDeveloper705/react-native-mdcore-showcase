@@ -6,7 +6,13 @@ import {
   StackNavigator
 } from 'react-navigation'
 
-import { BottomNavigation, Buttons, Cards, Splash } from '@containers'
+import {
+  BottomNavigation,
+  Buttons,
+  Cards,
+  Splash,
+  TextFields
+} from '@containers'
 import { Injector } from '@middlewares'
 
 import Drawer from './drawer'
@@ -26,6 +32,9 @@ const ROUTERS = {
   },
   splash: {
     screen: Splash
+  },
+  textFields: {
+    screen: TextFields
   }
 }
 
@@ -34,8 +43,8 @@ const CARD_STYLE = {
 }
 
 const Stack = StackNavigator(ROUTERS, {
-  initialRouteName: 'splash',
-  // initialRouteName: 'cards',
+  // initialRouteName: 'splash',
+  initialRouteName: 'textFields',
   cardStyle: CARD_STYLE,
   headerMode: 'none'
 })
