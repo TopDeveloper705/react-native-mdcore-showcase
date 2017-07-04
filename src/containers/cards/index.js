@@ -26,6 +26,8 @@ const BODY =
   "I'm a thing. But, like most politicians, he promised more than he could deliver. You won't have time for sleeping, solider, not with all the bed making you'll be doing. Then we'll go with that data file! Hey, you add a one and two zeros to that or we walk! You're going to do his laundry? I've got to find a way to escape."
 /* eslint-enable */
 
+const STATUS_BAR = <StatusBar />
+
 class CardsContainer extends PureComponent {
   static contextTypes = {
     icons: PropTypes.any,
@@ -42,10 +44,10 @@ class CardsContainer extends PureComponent {
     const styles = Styles.get(theme)
     return (
       <View style={styles.container}>
-        <StatusBar />
         <Toolbar
           iconName={this.context.icons.back}
           title="Cards"
+          statusBar={STATUS_BAR}
           onNavigationPress={this._onBackPress}
         />
         <ScrollView>

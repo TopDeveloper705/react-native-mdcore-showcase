@@ -15,15 +15,17 @@ import {
 import { navigatorActions } from '@redux'
 import { bindActionCreators, connect } from '@store'
 
+const STATUS_BAR = <StatusBar />
+
 class HomeContainer extends PureComponent {
   render() {
     const styles = Styles.get()
     return (
       <View style={styles.container}>
-        <StatusBar />
         <Toolbar
           title="ReactNativeMdCore"
           iconName="menu"
+          statusBar={STATUS_BAR}
           onNavigationPress={this._onMenuPress}
         />
         <ScrollView style={{ flex: 1 }}>

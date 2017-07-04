@@ -39,6 +39,8 @@ const ITEMS = [
   }
 ]
 
+const STATUS_BAR = <StatusBar />
+
 class Container extends PureComponent {
   static contextTypes = {
     icons: PropTypes.any,
@@ -50,10 +52,10 @@ class Container extends PureComponent {
     const styles = Styles.get(theme)
     return (
       <View style={styles.container}>
-        <StatusBar />
         <Toolbar
           title="Bottom navigation"
           iconName={this.context.icons.back}
+          statusBar={STATUS_BAR}
           onNavigationPress={this._onBackPress}
         />
         <BottomNavigationContainer

@@ -13,6 +13,8 @@ import {
 import { navigatorActions } from '@redux'
 import { bindActionCreators, connect } from '@store'
 
+const STATUS_BAR = <StatusBar />
+
 class ButtonsContainer extends PureComponent {
   static contextTypes = {
     icons: PropTypes.any,
@@ -24,10 +26,10 @@ class ButtonsContainer extends PureComponent {
     const styles = Styles.get(theme)
     return (
       <View style={styles.container}>
-        <StatusBar />
         <Toolbar
           iconName={this.context.icons.back}
           title="Buttons"
+          statusBar={STATUS_BAR}
           onNavigationPress={this._onBackPress}
         />
         <ScrollView>
