@@ -3,6 +3,7 @@ import {
   Button,
   Card,
   Image,
+  ListItem,
   PropTypes,
   PureComponent,
   ScrollView,
@@ -50,6 +51,14 @@ class CardsContainer extends PureComponent {
         <ScrollView>
           <View style={styles.content}>
             <Card>
+              <ListItem
+                avatar={URI}
+                avatarPlaceholder={this.context.images.blank}
+                avatarRadius="auto"
+                secondaryText="Subhead"
+                text="Title"
+                type="two-line-avatar-with-text"
+              />
               <Image
                 style={{
                   borderTopLeftRadius: theme.card.borderRadius,
@@ -59,17 +68,6 @@ class CardsContainer extends PureComponent {
                 ratio={1.778}
                 source={URI}
               />
-              <Text
-                style={{
-                  margin: theme.card.spacing
-                }}
-                type="body1"
-                value={BODY}
-              />
-            </Card>
-
-            <Card>
-              <View style={styles.media} />
               <Text
                 style={{
                   margin: theme.card.spacing
