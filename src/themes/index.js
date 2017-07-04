@@ -8,7 +8,7 @@ import {
 } from 'react-native-mdcore'
 
 import { themeActions } from '@redux'
-import { icons } from '@resources'
+import { icons, images } from '@resources'
 import { bindActionCreators, connect, getState } from '@store'
 
 import Theme from './theme'
@@ -22,13 +22,16 @@ const ThemeDeferrer = connect(
 
 class ThemeContainer extends PureComponent {
   static childContextTypes = {
-    icons: PropTypes.any
+    icons: PropTypes.any,
+    images: PropTypes.any
   }
 
   _icons = {}
 
+  _images = {}
+
   getChildContext() {
-    return { icons: this._icons }
+    return { icons: this._icons, images: this._images }
   }
 
   render() {
@@ -48,6 +51,7 @@ class ThemeContainer extends PureComponent {
     const { theme } = getState()
     if (!Utils.deepEqual(config, theme)) {
       Object.assign(this._icons, icons.resolve([this.props.os]))
+      Object.assign(this._images, images)
       this.props.themeActions.setConfig(config)
     }
   }

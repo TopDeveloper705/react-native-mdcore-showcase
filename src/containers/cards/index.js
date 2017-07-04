@@ -2,6 +2,7 @@ import React from 'react'
 import {
   Button,
   Card,
+  Image,
   PropTypes,
   PureComponent,
   ScrollView,
@@ -15,12 +16,18 @@ import {
 import { navigatorActions } from '@redux'
 import { bindActionCreators, connect } from '@store'
 
+/* eslint-disable */
+const GREY = '#ccc'
+const TITLE = 'Title goes here'
+const SUBTITLE = 'Subtitle here'
 const BODY =
   "I'm a thing. But, like most politicians, he promised more than he could deliver. You won't have time for sleeping, solider, not with all the bed making you'll be doing. Then we'll go with that data file! Hey, you add a one and two zeros to that or we walk! You're going to do his laundry? I've got to find a way to escape."
+/* eslint-enable */
 
 class CardsContainer extends PureComponent {
   static contextTypes = {
     icons: PropTypes.any,
+    images: PropTypes.any,
     theme: PropTypes.any
   }
 
@@ -36,42 +43,80 @@ class CardsContainer extends PureComponent {
           onNavigationPress={this._onBackPress}
         />
         <ScrollView>
-          <Card>
-            <Text
-              style={{
-                marginLeft: theme.card.spacing,
-                marginRight: theme.card.spacing,
-                marginTop: theme.card.spacingLg
-              }}
-              numberOfLines={1}
-              type="headline"
-              value="Title goes here"
-            />
-            <Text
-              style={{
-                marginLeft: theme.card.spacing,
-                marginRight: theme.card.spacing,
-                marginTop: theme.card.spacingXs,
-                marginBottom: theme.card.spacing
-              }}
-              numberOfLines={1}
-              type="body1"
-              subType="secondary"
-              value="Subtitle here"
-            />
-            <Text
-              style={{
-                margin: theme.card.spacing,
-                marginTop: 0
-              }}
-              type="body1"
-              value={BODY}
-            />
-            <View style={{ flexDirection: 'row' }}>
-              <Button title="Action 1" type="flat" onPress={() => {}} />
-              <Button title="Action 2" type="flat" onPress={() => {}} />
-            </View>
-          </Card>
+          <View style={styles.content}>
+            <Card>
+              <Image height={192} placeholder={this.context.images.blank} />
+              <Text
+                style={{
+                  margin: theme.card.spacing
+                }}
+                type="body1"
+                value={BODY}
+              />
+            </Card>
+
+            <Card>
+              <View style={styles.media} />
+              <Text
+                style={{
+                  margin: theme.card.spacing
+                }}
+                type="body1"
+                value={BODY}
+              />
+              <View style={{ flexDirection: 'row' }}>
+                <Button
+                  palette="primary"
+                  title="Action 1"
+                  type="flat"
+                  onPress={() => {}}
+                />
+                <Button title="Action 2" type="flat" onPress={() => {}} />
+              </View>
+            </Card>
+
+            <Card>
+              <Text
+                style={{
+                  marginLeft: theme.card.spacing,
+                  marginRight: theme.card.spacing,
+                  marginTop: theme.card.spacingLg
+                }}
+                numberOfLines={1}
+                type="headline"
+                value={TITLE}
+              />
+              <Text
+                style={{
+                  marginLeft: theme.card.spacing,
+                  marginRight: theme.card.spacing,
+                  marginTop: theme.card.spacingXs,
+                  marginBottom: theme.card.spacing
+                }}
+                numberOfLines={1}
+                type="body1"
+                subType="secondary"
+                value={SUBTITLE}
+              />
+              <Text
+                style={{
+                  margin: theme.card.spacing,
+                  marginTop: 0
+                }}
+                type="body1"
+                value={BODY}
+              />
+              <View style={{ flexDirection: 'row' }}>
+                <Button
+                  palette="primary"
+                  title="Action 1"
+                  type="flat"
+                  onPress={() => {}}
+                />
+                <Button title="Action 2" type="flat" onPress={() => {}} />
+              </View>
+            </Card>
+          </View>
         </ScrollView>
       </View>
     )
@@ -95,5 +140,8 @@ const Styles = StyleSheet.create(theme => {
     backgroundColor: theme.palette.backgroundDark,
     flex: 1
   }
-  return { container }
+  const content = {
+    padding: theme.card.spacingSm
+  }
+  return { container, content }
 })
