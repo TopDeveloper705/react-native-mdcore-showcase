@@ -6,7 +6,7 @@ import {
   StackNavigator
 } from 'react-navigation'
 
-import { BottomNavigation, Buttons, Splash } from '@containers'
+import { BottomNavigation, Buttons, Cards, Splash } from '@containers'
 import { Injector } from '@middlewares'
 
 import Drawer from './drawer'
@@ -17,6 +17,9 @@ const ROUTERS = {
   },
   buttons: {
     screen: Buttons
+  },
+  cards: {
+    screen: Cards
   },
   home: {
     screen: Drawer
@@ -31,7 +34,8 @@ const CARD_STYLE = {
 }
 
 const Stack = StackNavigator(ROUTERS, {
-  initialRouteName: 'splash',
+  // initialRouteName: 'splash',
+  initialRouteName: 'cards',
   cardStyle: CARD_STYLE,
   headerMode: 'none'
 })

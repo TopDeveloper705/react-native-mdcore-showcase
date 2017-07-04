@@ -31,3 +31,7 @@ export const toBottomNavigation = () => (dispatch, { screenNavigator }) => {
 export const toButtons = () => (dispatch, { screenNavigator }) => {
   navigate(screenNavigator, 'buttons')
 }
+
+export const toCards = () => (dispatch, { screenNavigator }) => {
+  navigate(screenNavigator, 'cards')
+}

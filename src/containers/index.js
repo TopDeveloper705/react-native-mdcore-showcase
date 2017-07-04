@@ -1,5 +1,6 @@
 export { default as BottomNavigation } from './bottomnavigation'
 export { default as Buttons } from './buttons'
+export { default as Cards } from './cards'
 export { default as Drawer } from './drawer'
 export { default as Home } from './home'
 export { default as Splash } from './splash'

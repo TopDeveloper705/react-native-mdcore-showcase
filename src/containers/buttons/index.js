@@ -1,19 +1,13 @@
 import React from 'react'
 import {
   Button,
-  Divider,
-  Icon,
-  ListItem,
-  ListPadding,
   PropTypes,
   PureComponent,
   ScrollView,
   StatusBar,
   StyleSheet,
-  Text,
   Toolbar,
-  View,
-  ViewPager
+  View
 } from 'react-native-mdcore'
 
 import { navigatorActions } from '@redux'
