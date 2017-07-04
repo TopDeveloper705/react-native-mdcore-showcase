@@ -20,6 +20,7 @@ import { bindActionCreators, connect } from '@store'
 const GREY = '#ccc'
 const TITLE = 'Title goes here'
 const SUBTITLE = 'Subtitle here'
+const URI = 'http://cdn.wallpapersafari.com/19/2/d2EIqH.jpg'
 const BODY =
   "I'm a thing. But, like most politicians, he promised more than he could deliver. You won't have time for sleeping, solider, not with all the bed making you'll be doing. Then we'll go with that data file! Hey, you add a one and two zeros to that or we walk! You're going to do his laundry? I've got to find a way to escape."
 /* eslint-enable */
@@ -32,20 +33,7 @@ class CardsContainer extends PureComponent {
   }
 
   state = {
-    uri: 'http://www.solschools.com/destinations/images/toronto.jpg'
-  }
-
-  componentDidMount() {
-    // let i = 0
-    // setInterval(() => {
-    //   i++
-    //   this.setState({
-    //     uri:
-    //       i % 2 === 0
-    //         ? 'http://cdn.wallpapersafari.com/19/2/d2EIqH.jpg'
-    //         : 'http://www.solschools.com/destinations/images/toronto.jpg'
-    //   })
-    // }, 4000)
+    uri: ''
   }
 
   render() {
@@ -69,8 +57,7 @@ class CardsContainer extends PureComponent {
                 }}
                 placeholder={this.context.images.blank}
                 ratio={1.778}
-                source={this.state.uri}
-                width={379}
+                source={URI}
               />
               <Text
                 style={{
