@@ -31,6 +31,23 @@ class CardsContainer extends PureComponent {
     theme: PropTypes.any
   }
 
+  state = {
+    uri: 'http://www.solschools.com/destinations/images/toronto.jpg'
+  }
+
+  componentDidMount() {
+    // let i = 0
+    // setInterval(() => {
+    //   i++
+    //   this.setState({
+    //     uri:
+    //       i % 2 === 0
+    //         ? 'http://cdn.wallpapersafari.com/19/2/d2EIqH.jpg'
+    //         : 'http://www.solschools.com/destinations/images/toronto.jpg'
+    //   })
+    // }, 4000)
+  }
+
   render() {
     const { theme } = this.context
     const styles = Styles.get(theme)
@@ -45,7 +62,16 @@ class CardsContainer extends PureComponent {
         <ScrollView>
           <View style={styles.content}>
             <Card>
-              <Image height={192} placeholder={this.context.images.blank} />
+              <Image
+                style={{
+                  borderTopLeftRadius: theme.card.borderRadius,
+                  borderTopRightRadius: theme.card.borderRadius
+                }}
+                placeholder={this.context.images.blank}
+                ratio={1.778}
+                source={this.state.uri}
+                width={379}
+              />
               <Text
                 style={{
                   margin: theme.card.spacing
